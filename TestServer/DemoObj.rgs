@@ -1,0 +1,26 @@
+HKCR
+{
+	kpu.demo.1 = s 'DemoObj class'
+	{
+		CLSID = s '{4f3dab6c-b986-430f-8551-18e2ec7c9b91}'
+	}
+	kpu.demo = s 'DemoObj class'
+	{		
+		CurVer = s 'kpu.demo.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4f3dab6c-b986-430f-8551-18e2ec7c9b91} = s 'DemoObj class'
+		{
+			ProgID = s 'kpu.demo.1'
+			VersionIndependentProgID = s 'kpu.demo'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{d0df4a54-d702-42a2-b3f3-d8015d37d6fa}'
+			Version = s '1.0'
+		}
+	}
+}

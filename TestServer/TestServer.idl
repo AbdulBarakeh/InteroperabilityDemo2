@@ -1,0 +1,38 @@
+// TestServer.idl : IDL source for TestServer
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (TestServer.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(938cdcdc-6107-45f9-9055-bff1d8f12a53),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IDemoObj : IDispatch
+{
+	[id(1)] HRESULT Add([in] LONG arg1, [in] LONG arg2, [out, retval] LONG* result);
+	[id(2)] HRESULT Sub([in] LONG arg1, [in] LONG arg2, [out, retval] LONG* result);
+};
+[
+	uuid(d0df4a54-d702-42a2-b3f3-d8015d37d6fa),
+	version(1.0),
+]
+library TestServerLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(4f3dab6c-b986-430f-8551-18e2ec7c9b91)
+	]
+	coclass DemoObj
+	{
+		[default] interface IDemoObj;
+	};
+};
+
+import "shobjidl.idl";
